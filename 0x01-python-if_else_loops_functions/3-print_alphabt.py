@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-for ch in range(97, 123):
-    if (f"{ch:c}") != "q" and (f"{ch:c}") != "e":
-        print("{:c}".format(ch), end="")
-        
+for a in range(ord('a'), ord('z') + 1):
+    if chr(a) != 'e' and chr(a) != 'q':
+print("{:c}".format(a), end='')
