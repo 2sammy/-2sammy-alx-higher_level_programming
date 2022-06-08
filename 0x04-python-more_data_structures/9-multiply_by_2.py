@@ -1,9 +1,8 @@
 #!/usr/bin/python3
-# 8-simple_delete.py
-# Brennan D Baraban
+# 9-multiple_by_2.py
+# Brennan D Baraban <375@holbertonschool.com>
 
 
-def simple_delete(a_dictionary, key=""):
-    if key in a_dictionary:
-        del a_dictionary[key]
-    return (a_dictionary)
+def multiply_by_2(a_dictionary):
+    """Return a new dictionary with all values multipled by 2."""
+    return ({k: a_dictionary[k] * 2 for k in a_dictionary})
