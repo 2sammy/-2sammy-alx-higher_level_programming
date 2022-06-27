@@ -134,3 +134,17 @@ _Write a class Square that defines a square by: (based on 4-square.py)_
 _Write the Python class `MagicClass` that does exactly the same as the following Python bytecode:_
 
 
+### a class abd  object are main aspects of oop.
+-a class creates new type while objects are the instances of the class.
+-variables tha belong to an object or a class are called fields.
+-methods are objects that have functionality that uses functions that belong to a class
+-the fields and methods,collectively are reffered as attributes of the class.
+-class methods has variables refers to the object itself and by the convection its given the name self
+###simplestclass.py
+empty block is indicated using pass statement
+
+### oop_method.py
+
+### oop_init.Python
+-__init__method is run as soon as an object of the class gets instantiated
+-
