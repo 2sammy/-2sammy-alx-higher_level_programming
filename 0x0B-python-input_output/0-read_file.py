@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""module to read a text file"""
+"""function that read a text file UTF8"""
 
 
 def read_file(filename=""):
