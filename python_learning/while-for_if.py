@@ -3,6 +3,11 @@ while condition < 10:
     print(condition)
     condition+=1
     
+fruits = 10
+while fruits<20:
+    print(fruits)
+    fruits+=2
+       
     '''for loop'''
     exampleList =[1,2,3,4,5,6,]
     for x in exampleList:

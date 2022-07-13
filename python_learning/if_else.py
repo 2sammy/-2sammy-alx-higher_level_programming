@@ -1,7 +1,10 @@
 x=2
 y=4
-if x <y :
+z=6
+if x >y and  x>z:
     print("sam")
+elif x>z :
+    print("i hate it")
 else:
     print("correct")
     if x > y :

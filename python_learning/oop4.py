@@ -12,7 +12,7 @@ class Dog :
       return self.age
     def get_type(self):
         return self.type
-    def set_age(self,age)
+    def set_age(self,age):
      self.age = age
   
     '''def bark(self):
