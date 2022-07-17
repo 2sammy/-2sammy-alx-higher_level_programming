@@ -11,5 +11,5 @@ horsemen =['war','famine','death','pestilence']
 i = 0;
 num = len(horsemen)
 while i < num:
-    print horsemen[i]
+    print (horsemen[i])
     i+=1
