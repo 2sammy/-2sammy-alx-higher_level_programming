@@ -7,3 +7,4 @@ const thirdLine = 'Javascript is amazing';
 
 console.log(firstLine + '\n' + secondLine + '\n' +
                 thirdLine);
+                
