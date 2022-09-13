@@ -1,25 +1,26 @@
 #!/usr/bin/python3
-''' Defined State class which inherits from Base class '''
-from sqlalchemy import Column, Integer, String
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import relationship
+"""
+This script defines a State class and
+a Base class to work with MySQLAlchemy ORM.
+"""
 
-# using declarative_base func to return a new base class, mapped class State
-# will inherit from Base and generate new Table and mapper()
-# declare new mapping
+from sqlalchemy import Column, Integer, String
+from sqlalchemy.orm import relationship
+from sqlalchemy.ext.declarative import declarative_base
+
 Base = declarative_base()
 
 
-# map class to inherit from Base
 class State(Base):
-    """mapped class definition"""
-
-    # 3 important: Table, mapper(), class objects
-
-    # Table
+    """State class
+    Attributes:
+        __tablename__ (str): The table name of the class
+        id (int): The State id of the class
+        name (str): The State name of the class
+        cities (:obj:`City`): The Cities belongs to State
+    """
     __tablename__ = 'states'
 
-    # Describe table, column objects, use methods imported from sqlalchemy
     id = Column(Integer, primary_key=True)
     name = Column(String(128), nullable=False)
-    cities = relationship("City", cascade="all")
+    cities = relationship("City", backref="state", cascade="all, delete")

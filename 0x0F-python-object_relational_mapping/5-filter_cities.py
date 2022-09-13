@@ -1,34 +1,41 @@
 #!/usr/bin/python3
-'''script to list all cities with user inputted state'''
+"""
+This script  takes in the name of a state
+as an argument and lists all cities of that
+state, using the database `hbtn_0e_4_usa`.
+"""
 
-if __name__ == "__main__":
-    from sys import argv
-    import MySQLdb
+import MySQLdb
+from sys import argv
 
-    # connect
-    db = MySQLdb.connect(host='localhost',
-                         port=3306,
-                         user=argv[1],
-                         passwd=argv[2],
-                         db=argv[3]
-                         )
-    # cursor
-    c = db.cursor()
-    # execute
-    state = (argv[4], )
-    cmd = "SELECT cities.name FROM cities JOIN states ON\
-    cities.state_id = states.id AND states.name = %s ORDER BY cities.id ASC"
+if __name__ == '__main__':
+    """
+    Access to the database and get the cities
+    from the database.
+    """
 
-    c.execute(cmd, state)
+    db = MySQLdb.connect(host="localhost", user=argv[1], port=3306,
+                         passwd=argv[2], db=argv[3])
 
-    # fetch
-    rows = c.fetchall()
+    with db.cursor() as cur:
+        cur.execute("""
+            SELECT
+                cities.id, cities.name
+            FROM
+                cities
+            JOIN
+                states
+            ON
+                cities.state_id = states.id
+            WHERE
+                states.name LIKE BINARY %(state_name)s
+            ORDER BY
+                cities.id ASC
+        """, {
+            'state_name': argv[4]
+        })
 
-    # print
-    ll = [x[0] for x in rows]
-    together = ", ".join(ll)
-    print(together)
+        rows = cur.fetchall()
 
-    # close
-    c.close()
-    db.close()
+    if rows is not None:
+        print(", ".join([row[1] for row in rows]))
