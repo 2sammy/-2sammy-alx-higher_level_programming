@@ -6,4 +6,3 @@ if __name__ == "__main__":
         html = response.read()
         print('Body response:')
         print('\t- type: {}'.format(type(html)))
-
