@@ -5,12 +5,9 @@
     urllib.error.HTTPError is managed and printed in the form
     Error code: <HTTP status code>
 """
-
 import sys
 import urllib.request
 import urllib.parse
-
-
 if __name__ == "__main__":
     req = urllib.request.Request(sys.argv[1])
     try:
